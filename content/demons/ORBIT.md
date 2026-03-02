@@ -1,13 +1,16 @@
 ---
 title: "ORBIT"
 creator: "Mindcap"
-verifier: "Doggie"
+verifier: "Zoink"
 difficulty: "Extreme Demon"
-levelID: "73095684"
-length: "Long"
-song: "CRIM3S - Lost (XVA Remix)"
-image: "/images/demons/slaughterhouse.jpg"
-youtube: "mVg8LgrWaYQ"
+levelID: "133175713"
+length: "XL"
+song: "Animation Warrior Theme"
+image: "/images/demons/orbit.png"
+youtube: "HWg8dtItGCA"
 featured: true
 weight: 1
 ---
+
+# Biography
+ORBIT is an extreme demon mega-collab hosted by MindCap. The level was verified by Zoink on February 10, 2026.
