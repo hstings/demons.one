@@ -6,8 +6,8 @@ difficulty: "Extreme Demon"
 levelID: "73095684"
 length: "Long"
 song: "CRIM3S - Lost (XVA Remix)"
-image: "/images/demons/slaughterhouse.jpg"
-youtube: "mVg8LgrWaYQ"
+image: "/images/demons/Slaughterhouse.png"
+youtube: "7W5bZJY2IPI"
 featured: true
 weight: 3
 ---

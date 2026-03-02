@@ -6,7 +6,7 @@ difficulty: "Extreme Demon"
 levelID: "133175713"
 length: "XL"
 song: "Animation Warrior Theme"
-image: "/images/demons/orbit.png"
+image: "/images/demons/ORBIT.png"
 youtube: "HWg8dtItGCA"
 featured: true
 weight: 1
