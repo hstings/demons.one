@@ -3,9 +3,10 @@
 <head>
 	<meta name="generator" content="Hugo 0.140.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
-    <title>demons.one | demons.one</title>
+    <title>Home | demons.one</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A database of Geometry Dash demons.">
+    <meta name="view-transition" content="same-origin">
     <link rel="stylesheet" href="/css/styles.css">
 
     
@@ -24,24 +25,17 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="/" class="logo">
-                <img src="/images/misc/icon.jpg" alt="" class="logo-icon">
+                <img src="/images/misc/icon-light.png" alt="" class="logo-icon">
                 demons.one
             </a>
-
-            <div class="search-wrapper">
-                <button class="search-trigger" id="search-trigger" aria-label="Search">
-                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                        <path d="M10 6.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-.691 3.516a4.5 4.5 0 1 1 .707-.707l2.838 2.837a.5.5 0 0 1-.708.708L9.31 10.016Z" fill="currentColor"/>
-                    </svg>
-                    Search demons...
-                </button>
-            </div>
-
+    
             <nav class="nav-links">
-                <a href="/demons/">Demons</a>
+                <a href="/levels/">Levels</a>
+                <a href="/players/">Players</a>
+                <a href="/creators/">Creators</a>
+                <a href="/about/">About</a>
             </nav>
-
-            
+    
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
                 <img src="/images/misc/dark-mode-light.svg" alt="" id="theme-icon">
             </button>
@@ -50,18 +44,196 @@
 
     <main>
         
-<h2>Welcome to demons.one!</h2>
 
-<ul class="demon-list">
+
+<section class="home-hero">
+    <div class="home-hero-text">
+        <h1 class="home-title">Welcome to demons.one!</h1>
+        <p class="home-subtitle">A comprehensive reference for Geometry Dash levels, players, creators, etc.</p>
+        <a href="/demons/" class="home-cta">Browse all demons →</a>
+    </div>
+</section>
+
+<hr>
+
+
+<section class="home-stats">
     
+    
+    
+        
+    
+        
+    
+        
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <div class="stat-item">
+        <span class="stat-value">4</span>
+        <span class="stat-label">Total Demons</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">3</span>
+        <span class="stat-label">Creators</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">3</span>
+        <span class="stat-label">Extreme</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Insane</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Hard</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Medium</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Easy</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">1</span>
+        <span class="stat-label">Unrated</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Unreleased</span>
+    </div>
+</section>
+
+<hr>
+
+
+
+
+<section class="home-section">
+    <h2 class="section-heading">Featured</h2>
+    <div class="carousel">
+        <div class="carousel-track">
+            
+            <a href="/demons/orbit/" class="featured-card" style="--card-image: url('/images/demons/slaughterhouse.jpg')">
+                <div class="featured-card-bg"></div>
+                <div class="featured-card-overlay">
+                    <div class="featured-card-content">
+                        <h3 class="featured-card-title">ORBIT</h3>
+                        <p class="featured-card-creator">by Mindcap</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/demons/slaughterhouse/" class="featured-card" style="--card-image: url('/images/demons/slaughterhouse.jpg')">
+                <div class="featured-card-bg"></div>
+                <div class="featured-card-overlay">
+                    <div class="featured-card-content">
+                        <h3 class="featured-card-title">Slaughterhouse</h3>
+                        <p class="featured-card-creator">by IcEDCave</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/demons/tidal-wave/" class="featured-card" style="--card-image: url('/images/demons/slaughterhouse.jpg')">
+                <div class="featured-card-bg"></div>
+                <div class="featured-card-overlay">
+                    <div class="featured-card-content">
+                        <h3 class="featured-card-title">Tidal Wave</h3>
+                        <p class="featured-card-creator">by IcEDCave</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="/demons/africa-circles/" class="featured-card" style="--card-image: url('/images/demons/africa%20circles.jpg')">
+                <div class="featured-card-bg"></div>
+                <div class="featured-card-overlay">
+                    <div class="featured-card-content">
+                        <h3 class="featured-card-title">Africa Circles</h3>
+                        <p class="featured-card-creator">by Linear2</p>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+
+        <button class="carousel-btn carousel-btn-prev" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="carousel-btn carousel-btn-next" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <div class="carousel-dots"></div>
+    </div>
+</section>
+<hr>
+
+
+
+<section class="home-section">
+    <h2 class="section-heading">Recently Added</h2>
+    <ul class="demon-list">
+        
         <li>
-            <a href="/demons/">Demons</a>
+            <a href="/demons/africa-circles/">Africa Circles</a>
             <span class="meta">
-                by  · 
+                by Linear2
+                <span class="badge badge-unrated">Unrated</span>
             </span>
         </li>
-    
-</ul>
+        
+        <li>
+            <a href="/demons/tidal-wave/">Tidal Wave</a>
+            <span class="meta">
+                by IcEDCave
+                <span class="badge badge-extreme-demon">Extreme Demon</span>
+            </span>
+        </li>
+        
+        <li>
+            <a href="/demons/slaughterhouse/">Slaughterhouse</a>
+            <span class="meta">
+                by IcEDCave
+                <span class="badge badge-extreme-demon">Extreme Demon</span>
+            </span>
+        </li>
+        
+        <li>
+            <a href="/demons/orbit/">ORBIT</a>
+            <span class="meta">
+                by Mindcap
+                <span class="badge badge-extreme-demon">Extreme Demon</span>
+            </span>
+        </li>
+        
+    </ul>
+    <a href="/demons/" class="view-all">View all demons →</a>
+</section>
+
+<hr>
+
+
+<section class="home-section home-about">
+    <h2 class="section-heading">About</h2>
+    <p>demons.one is an independent reference index for Geometry Dash demon levels. Each entry documents the level's creator, verifier, difficulty, and other metadata — alongside a showcase video where available.</p>
+    <p>This is not an official tier list. Difficulty ratings reflect community consensus at the time of entry.</p>
+</section>
+
 
     </main>
 
@@ -120,6 +292,69 @@
                 applyTheme(next);
                 localStorage.setItem("theme", next);
             });
+        })();
+    </script>
+    <script>
+        
+        (function () {
+            const track         = document.querySelector(".carousel-track");
+            if (!track) return;
+
+            const dotsContainer = document.querySelector(".carousel-dots");
+            const prevBtn       = document.querySelector(".carousel-btn-prev");
+            const nextBtn       = document.querySelector(".carousel-btn-next");
+            const perPage       = 3;
+            let timer;
+
+            const cards  = Array.from(track.children);
+            const total  = cards.length;
+
+            
+            const pageCount = total - perPage + 1;
+            for (let i = 0; i < pageCount; i++) {
+                const dot = document.createElement("button");
+                dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+                dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+                dot.addEventListener("click", () => goTo(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            let current = 0;
+
+            function goTo(index) {
+                if (index > total - perPage) {
+                    current = 0;
+                } else if (index < 0) {
+                    current = total - perPage;
+                } else {
+                    current = index;
+                }
+
+                const cardWidth = cards[0].offsetWidth + 12;
+                track.style.transform = `translateX(${-(current * cardWidth)}px)`;
+
+                document.querySelectorAll(".carousel-dot").forEach((dot, i) => {
+                    dot.classList.toggle("active", i === current);
+                });
+
+                resetTimer();
+            }
+
+            prevBtn.addEventListener("click", () => goTo(current - 1));
+            nextBtn.addEventListener("click", () => goTo(current + 1));
+
+            function startTimer() {
+                timer = setInterval(() => goTo(current + 1), 5000);
+            }
+            function resetTimer() {
+                clearInterval(timer);
+                startTimer();
+            }
+
+            track.addEventListener("mouseenter", () => clearInterval(timer));
+            track.addEventListener("mouseleave", startTimer);
+
+            startTimer();
         })();
     </script>
 </body>

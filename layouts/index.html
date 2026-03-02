@@ -1,0 +1,132 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="home-hero">
+    <div class="home-hero-text">
+        <h1 class="home-title">Welcome to demons.one!</h1>
+        <p class="home-subtitle">A comprehensive reference for Geometry Dash levels, players, creators, etc.</p>
+        <a href="/demons/" class="home-cta">Browse all demons →</a>
+    </div>
+</section>
+
+<hr>
+
+<!-- Stats -->
+<section class="home-stats">
+    {{ $allDemons := where .Site.RegularPages "Section" "demons" }}
+    {{ $creators := slice }}
+    {{ range $allDemons }}
+        {{ $creators = $creators | append .Params.creator }}
+    {{ end }}
+    {{ $extreme  := where $allDemons ".Params.difficulty" "Extreme Demon" }}
+    {{ $insane   := where $allDemons ".Params.difficulty" "Insane Demon" }}
+    {{ $hard     := where $allDemons ".Params.difficulty" "Hard Demon" }}
+    {{ $medium   := where $allDemons ".Params.difficulty" "Medium Demon" }}
+    {{ $easy     := where $allDemons ".Params.difficulty" "Easy Demon" }}
+    {{ $unrated  := where $allDemons ".Params.difficulty" "Unrated" }}
+    {{ $unreleased := where $allDemons ".Params.difficulty" "Unreleased" }}
+
+    <div class="stat-item">
+        <span class="stat-value">{{ len $allDemons }}</span>
+        <span class="stat-label">Total Demons</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">{{ len ($creators | uniq) }}</span>
+        <span class="stat-label">Creators</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">{{ len $extreme }}</span>
+        <span class="stat-label">Extreme</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">{{ len $insane }}</span>
+        <span class="stat-label">Insane</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">{{ len $hard }}</span>
+        <span class="stat-label">Hard</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">{{ len $medium }}</span>
+        <span class="stat-label">Medium</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">{{ len $easy }}</span>
+        <span class="stat-label">Easy</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">{{ len $unrated }}</span>
+        <span class="stat-label">Unrated</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-value">{{ len $unreleased }}</span>
+        <span class="stat-label">Unreleased</span>
+    </div>
+</section>
+
+<hr>
+
+<!-- Featured Demons -->
+{{ $featured := where .Site.RegularPages ".Params.featured" true }}
+{{ if $featured }}
+<section class="home-section">
+    <h2 class="section-heading">Featured</h2>
+    <div class="carousel">
+        <div class="carousel-track">
+            {{ range $featured.ByWeight }}
+            <a href="{{ .RelPermalink }}" class="featured-card" {{ if .Params.image }}style="--card-image: url('{{ .Params.image }}')"{{ end }}>
+                <div class="featured-card-bg"></div>
+                <div class="featured-card-overlay">
+                    <div class="featured-card-content">
+                        <h3 class="featured-card-title">{{ .Title }}</h3>
+                        <p class="featured-card-creator">by {{ .Params.creator }}</p>
+                    </div>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+
+        <button class="carousel-btn carousel-btn-prev" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="carousel-btn carousel-btn-next" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+
+        <div class="carousel-dots"></div>
+    </div>
+</section>
+<hr>
+{{ end }}
+
+<!-- Recently Added -->
+<section class="home-section">
+    <h2 class="section-heading">Recently Added</h2>
+    <ul class="demon-list">
+        {{ range first 5 (where .Site.RegularPages "Section" "demons").ByDate.Reverse }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span class="meta">
+                by {{ .Params.creator }}
+                <span class="badge badge-{{ urlize .Params.difficulty }}">{{ .Params.difficulty }}</span>
+            </span>
+        </li>
+        {{ end }}
+    </ul>
+    <a href="/demons/" class="view-all">View all demons →</a>
+</section>
+
+<hr>
+
+<!-- About -->
+<section class="home-section home-about">
+    <h2 class="section-heading">About</h2>
+    <p>demons.one is an independent reference index for Geometry Dash demon levels. Each entry documents the level's creator, verifier, difficulty, and other metadata — alongside a showcase video where available.</p>
+    <p>This is not an official tier list. Difficulty ratings reflect community consensus at the time of entry.</p>
+</section>
+
+{{ end }}

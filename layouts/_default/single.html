@@ -13,7 +13,7 @@
     </div>
 </div>
 {{ else }}
-<h1>{{ .Title }}</h1>
+<h1 class="demon-title" style="view-transition-name: demon-title;">{{ .Title }}</h1>
 {{ if .Params.creator }}<p class="hero-creator">by {{ .Params.creator }}</p>{{ end }}
 {{ end }}
 

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
-    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <title>Tidal Wave | demons.one</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="description" content="A database of Geometry Dash demons.">
     <meta name="view-transition" content="same-origin">
     <link rel="stylesheet" href="/css/styles.css">
 
-    <!-- Runs before paint to prevent flash of wrong theme -->
+    
     <script>
         (function () {
             const stored = localStorage.getItem("theme");
@@ -42,15 +42,93 @@
     </header>
 
     <main>
-        {{ block "main" . }}{{ end }}
+        
+
+
+<div class="hero">
+    <div class="hero-bg" style="background-image: url('/images/demons/slaughterhouse.jpg');"></div>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="demon-title">Tidal Wave</h1>
+            
+            <p class="hero-creator">by IcEDCave</p>
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="page-content">
+
+    <section class="metadata">
+        <div class="meta-people">
+            <div class="meta-person">
+                <span class="meta-label">Created by</span>
+                <span class="meta-value">IcEDCave</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-person">
+                <span class="meta-label">Verified by</span>
+                <span class="meta-value">Doggie</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-person">
+                <span class="meta-label">Difficulty</span>
+                <span class="meta-value">
+                    <span class="badge badge-extreme-demon">Extreme Demon</span>
+                </span>
+            </div>
+        </div>
+    
+        <div class="meta-details">
+            <span class="meta-detail">
+                <span class="meta-label">ID</span>
+                <span class="meta-value">73095684</span>
+            </span>
+            <span class="meta-detail">
+                <span class="meta-label">Length</span>
+                <span class="meta-value">Long</span>
+            </span>
+            <span class="meta-detail">
+                <span class="meta-label">Song</span>
+                <span class="meta-value">CRIM3S - Lost (XVA Remix)</span>
+            </span>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="content">
+        
+    </section>
+
+    
+    <hr>
+    <section class="showcase">
+        <h2>Showcase</h2>
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/mVg8LgrWaYQ"
+                title="YouTube showcase for Tidal Wave"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+    
+
+</div>
+
+
     </main>
 
     <footer>
-        <p>© {{ now.Year }} demons.one</p>
+        <p>© 2026 demons.one</p>
     </footer>
 
     <script>
-        // --- Parallax ---
+        
         (function () {
             const heroBg = document.querySelector(".hero-bg");
             if (!heroBg) return;
@@ -70,15 +148,15 @@
             updateParallax();
         })();
 
-        // --- Dark mode toggle ---
+        
         (function () {
             const toggle = document.getElementById("theme-toggle");
             const icon   = document.getElementById("theme-icon");
             const html   = document.documentElement;
 
             const ICONS = {
-                light: "/images/misc/dark-mode-light.svg",  // shown when in light mode (click to go dark)
-                dark:  "/images/misc/dark-mode-dark.svg",   // shown when in dark mode (click to go light)
+                light: "/images/misc/dark-mode-light.svg",  
+                dark:  "/images/misc/dark-mode-dark.svg",   
             };
 
             function applyTheme(theme) {
@@ -91,7 +169,7 @@
                 }
             }
 
-            // Sync icon with whatever theme was set before paint
+            
             const current = html.getAttribute("data-theme") === "dark" ? "dark" : "light";
             applyTheme(current);
 
@@ -103,7 +181,7 @@
         })();
     </script>
     <script>
-        // --- Carousel ---
+        
         (function () {
             const track         = document.querySelector(".carousel-track");
             if (!track) return;
@@ -117,7 +195,7 @@
             const cards  = Array.from(track.children);
             const total  = cards.length;
 
-            // Build dots
+            
             const pageCount = total - perPage + 1;
             for (let i = 0; i < pageCount; i++) {
                 const dot = document.createElement("button");

@@ -5,30 +5,45 @@
     <title>Categories | demons.one</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A database of Geometry Dash demons.">
+    <meta name="view-transition" content="same-origin">
     <link rel="stylesheet" href="/css/styles.css">
+
+    
+    <script>
+        (function () {
+            const stored = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (stored === "dark" || (!stored && prefersDark)) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        })();
+    </script>
 </head>
 
 <body>
     <header class="site-header">
         <div class="nav-container">
             <a href="/" class="logo">
-                <img src="/images/misc/icon.jpg" alt="" class="logo-icon">
+                <img src="/images/misc/icon-light.png" alt="" class="logo-icon">
                 demons.one
             </a>
-
-            <div class="search-wrapper">
-                <input type="text" placeholder="Search demons..." class="search-input">
-            </div>
-
+    
             <nav class="nav-links">
-                <a href="/demons/">Demons</a>
+                <a href="/levels/">Levels</a>
+                <a href="/players/">Players</a>
+                <a href="/creators/">Creators</a>
+                <a href="/about/">About</a>
             </nav>
+    
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <img src="/images/misc/dark-mode-light.svg" alt="" id="theme-icon">
+            </button>
         </div>
     </header>
 
     <main>
         
-<h2>Welcome to Categories!</h2>
+<h2>Index of Categories</h2>
 
 <ul class="demon-list">
     
@@ -41,35 +56,119 @@
     </footer>
 
     <script>
+        
         (function () {
             const heroBg = document.querySelector(".hero-bg");
             if (!heroBg) return;
-
             let ticking = false;
-
             function updateParallax() {
-                const scrollY = window.scrollY;
                 const heroEl = heroBg.closest(".hero");
                 const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
-
-                if (scrollY <= heroBottom) {
-                    
-                    const ratio = scrollY / heroBottom;
-                    const offset = ratio * 40; 
-                    heroBg.style.transform = `translateY(${offset}%)`;
+                if (window.scrollY <= heroBottom) {
+                    const ratio = window.scrollY / heroBottom;
+                    heroBg.style.transform = `translateY(${ratio * 40}%)`;
                 }
-
                 ticking = false;
             }
-
             window.addEventListener("scroll", function () {
-                if (!ticking) {
-                    requestAnimationFrame(updateParallax);
-                    ticking = true;
-                }
+                if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
             }, { passive: true });
+            updateParallax();
+        })();
 
-            updateParallax(); 
+        
+        (function () {
+            const toggle = document.getElementById("theme-toggle");
+            const icon   = document.getElementById("theme-icon");
+            const html   = document.documentElement;
+
+            const ICONS = {
+                light: "/images/misc/dark-mode-light.svg",  
+                dark:  "/images/misc/dark-mode-dark.svg",   
+            };
+
+            function applyTheme(theme) {
+                if (theme === "dark") {
+                    html.setAttribute("data-theme", "dark");
+                    icon.src = ICONS.dark;
+                } else {
+                    html.removeAttribute("data-theme");
+                    icon.src = ICONS.light;
+                }
+            }
+
+            
+            const current = html.getAttribute("data-theme") === "dark" ? "dark" : "light";
+            applyTheme(current);
+
+            toggle.addEventListener("click", function () {
+                const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+                applyTheme(next);
+                localStorage.setItem("theme", next);
+            });
+        })();
+    </script>
+    <script>
+        
+        (function () {
+            const track         = document.querySelector(".carousel-track");
+            if (!track) return;
+
+            const dotsContainer = document.querySelector(".carousel-dots");
+            const prevBtn       = document.querySelector(".carousel-btn-prev");
+            const nextBtn       = document.querySelector(".carousel-btn-next");
+            const perPage       = 3;
+            let timer;
+
+            const cards  = Array.from(track.children);
+            const total  = cards.length;
+
+            
+            const pageCount = total - perPage + 1;
+            for (let i = 0; i < pageCount; i++) {
+                const dot = document.createElement("button");
+                dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+                dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+                dot.addEventListener("click", () => goTo(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            let current = 0;
+
+            function goTo(index) {
+                if (index > total - perPage) {
+                    current = 0;
+                } else if (index < 0) {
+                    current = total - perPage;
+                } else {
+                    current = index;
+                }
+
+                const cardWidth = cards[0].offsetWidth + 12;
+                track.style.transform = `translateX(${-(current * cardWidth)}px)`;
+
+                document.querySelectorAll(".carousel-dot").forEach((dot, i) => {
+                    dot.classList.toggle("active", i === current);
+                });
+
+                resetTimer();
+            }
+
+            prevBtn.addEventListener("click", () => goTo(current - 1));
+            nextBtn.addEventListener("click", () => goTo(current + 1));
+
+            function startTimer() {
+                timer = setInterval(() => goTo(current + 1), 5000);
+            }
+            function resetTimer() {
+                clearInterval(timer);
+                startTimer();
+            }
+
+            track.addEventListener("mouseenter", () => clearInterval(timer));
+            track.addEventListener("mouseleave", startTimer);
+
+            startTimer();
         })();
     </script>
 </body>

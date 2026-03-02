@@ -1,12 +1,12 @@
 {{ define "main" }}
-<h2>Welcome to {{ .Title }}!</h2>
+<h2>Index of {{ .Title }}</h2>
 
 <ul class="demon-list">
     {{ range .Pages.ByParam "difficulty" }}
         <li>
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <span class="meta">
-                by {{ .Params.creator }} · {{ .Params.verifier }}
+                by {{ .Params.creator }}
             </span>
         </li>
     {{ end }}
