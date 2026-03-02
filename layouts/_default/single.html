@@ -1,0 +1,47 @@
+{{ define "main" }}
+
+{{ if .Params.image }}
+<div class="hero">
+    <img src="{{ .Params.image }}" alt="{{ .Title }}">
+    <div class="hero-overlay">
+        <h1>{{ .Title }}</h1>
+    </div>
+</div>
+{{ else }}
+<h1>{{ .Title }}</h1>
+{{ end }}
+<div clas="container">
+    <section class="metadata">
+        <p><strong>Creator:</strong> {{ .Params.creator }}</p>
+        <p><strong>Verifier:</strong> {{ .Params.verifier }}</p>
+        <p><strong>Difficulty:</strong> {{ .Params.difficulty }}</p>
+        <p><strong>Level ID:</strong> {{ .Params.levelID }}</p>
+        <p><strong>Length:</strong> {{ .Params.length }}</p>
+        <p><strong>Song:</strong> {{ .Params.song }}</p>
+    </section>
+
+    <hr>
+
+    <section class="content">
+        {{ .Content }}
+    </section>
+
+    {{ if .Params.youtube }}
+    <hr>
+
+    <section class="showcase">
+        <h2>Showcase</h2>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/{{ .Params.youtube }}"
+                title="YouTube showcase for {{ .Title }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+</div>
+{{ end }}
+
+{{ end }}

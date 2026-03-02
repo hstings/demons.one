@@ -1,0 +1,12 @@
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "demons.one"
+enableRobotsTXT = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  description = "A database of Geometry Dash demons."

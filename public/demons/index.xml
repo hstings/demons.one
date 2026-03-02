@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Demons on demons.one</title>
+    <link>http://localhost:1313/demons/</link>
+    <description>Recent content in Demons on demons.one</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/demons/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Slaughterhouse</title>
+      <link>http://localhost:1313/demons/slaughterhouse/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/demons/slaughterhouse/</guid>
+      <description>&lt;h2 id=&#34;biography&#34;&gt;Biography&lt;/h2&gt;&#xA;&lt;p&gt;Slaughterhouse is an extreme demon created by IcEDCave. It was initially hack-verified by spaceuk, with Doggie being the first victor. When spaceuk confessed to hacking, it was revealed that Doggie was the true verifier of the level.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
