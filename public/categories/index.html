@@ -7,17 +7,28 @@
     <meta name="description" content="A database of Geometry Dash demons.">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
-    <header>
-        <h1><a href="/">demons.one</a></h1>
-        <nav>
-            <a href="/demons/">Demons</a>
-        </nav>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/images/misc/icon.jpg" alt="" class="logo-icon">
+                demons.one
+            </a>
+
+            <div class="search-wrapper">
+                <input type="text" placeholder="Search demons..." class="search-input">
+            </div>
+
+            <nav class="nav-links">
+                <a href="/demons/">Demons</a>
+            </nav>
+        </div>
     </header>
 
     <main>
         
-<h2>Categories</h2>
+<h2>Welcome to Categories!</h2>
 
 <ul class="demon-list">
     
@@ -28,5 +39,38 @@
     <footer>
         <p>© 2026 demons.one</p>
     </footer>
+
+    <script>
+        (function () {
+            const heroBg = document.querySelector(".hero-bg");
+            if (!heroBg) return;
+
+            let ticking = false;
+
+            function updateParallax() {
+                const scrollY = window.scrollY;
+                const heroEl = heroBg.closest(".hero");
+                const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+
+                if (scrollY <= heroBottom) {
+                    
+                    const ratio = scrollY / heroBottom;
+                    const offset = ratio * 40; 
+                    heroBg.style.transform = `translateY(${offset}%)`;
+                }
+
+                ticking = false;
+            }
+
+            window.addEventListener("scroll", function () {
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            updateParallax(); 
+        })();
+    </script>
 </body>
 </html>

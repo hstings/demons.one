@@ -2,22 +2,57 @@
 
 {{ if .Params.image }}
 <div class="hero">
-    <img src="{{ .Params.image }}" alt="{{ .Title }}">
+    <div class="hero-bg" style="background-image: url('{{ .Params.image }}');"></div>
     <div class="hero-overlay">
-        <h1>{{ .Title }}</h1>
+        <div class="hero-content">
+            <h1 class="demon-title">{{ .Title }}</h1>
+            {{ if .Params.creator }}
+            <p class="hero-creator">by {{ .Params.creator }}</p>
+            {{ end }}
+        </div>
     </div>
 </div>
 {{ else }}
 <h1>{{ .Title }}</h1>
+{{ if .Params.creator }}<p class="hero-creator">by {{ .Params.creator }}</p>{{ end }}
 {{ end }}
-<div clas="container">
+
+<div class="page-content">
+
     <section class="metadata">
-        <p><strong>Creator:</strong> {{ .Params.creator }}</p>
-        <p><strong>Verifier:</strong> {{ .Params.verifier }}</p>
-        <p><strong>Difficulty:</strong> {{ .Params.difficulty }}</p>
-        <p><strong>Level ID:</strong> {{ .Params.levelID }}</p>
-        <p><strong>Length:</strong> {{ .Params.length }}</p>
-        <p><strong>Song:</strong> {{ .Params.song }}</p>
+        <div class="meta-people">
+            <div class="meta-person">
+                <span class="meta-label">Created by</span>
+                <span class="meta-value">{{ .Params.creator }}</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-person">
+                <span class="meta-label">Verified by</span>
+                <span class="meta-value">{{ .Params.verifier }}</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-person">
+                <span class="meta-label">Difficulty</span>
+                <span class="meta-value">
+                    <span class="badge badge-{{ urlize .Params.difficulty }}">{{ .Params.difficulty }}</span>
+                </span>
+            </div>
+        </div>
+    
+        <div class="meta-details">
+            <span class="meta-detail">
+                <span class="meta-label">ID</span>
+                <span class="meta-value">{{ .Params.levelID }}</span>
+            </span>
+            <span class="meta-detail">
+                <span class="meta-label">Length</span>
+                <span class="meta-value">{{ .Params.length }}</span>
+            </span>
+            <span class="meta-detail">
+                <span class="meta-label">Song</span>
+                <span class="meta-value">{{ .Params.song }}</span>
+            </span>
+        </div>
     </section>
 
     <hr>
@@ -28,11 +63,10 @@
 
     {{ if .Params.youtube }}
     <hr>
-
     <section class="showcase">
         <h2>Showcase</h2>
         <div class="video-wrapper">
-            <iframe 
+            <iframe
                 src="https://www.youtube.com/embed/{{ .Params.youtube }}"
                 title="YouTube showcase for {{ .Title }}"
                 frameborder="0"
@@ -41,7 +75,8 @@
             </iframe>
         </div>
     </section>
+    {{ end }}
+
 </div>
-{{ end }}
 
 {{ end }}

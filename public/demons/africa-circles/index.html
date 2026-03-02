@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <title>Africa Circles | demons.one</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A database of Geometry Dash demons.">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    
+    <script>
+        (function () {
+            const stored = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (stored === "dark" || (!stored && prefersDark)) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/images/misc/icon.jpg" alt="" class="logo-icon">
+                demons.one
+            </a>
+
+            <div class="search-wrapper">
+                <button class="search-trigger" id="search-trigger" aria-label="Search">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M10 6.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-.691 3.516a4.5 4.5 0 1 1 .707-.707l2.838 2.837a.5.5 0 0 1-.708.708L9.31 10.016Z" fill="currentColor"/>
+                    </svg>
+                    Search demons...
+                </button>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/demons/">Demons</a>
+            </nav>
+
+            
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <img src="/images/misc/dark-mode-light.svg" alt="" id="theme-icon">
+            </button>
+        </div>
+    </header>
+
+    <main>
+        
+
+
+<div class="hero">
+    <div class="hero-bg" style="background-image: url('/images/demons/africa%20circles.jpg');"></div>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="demon-title">Africa Circles</h1>
+            
+            <p class="hero-creator">by Linear2</p>
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="page-content">
+
+    <section class="metadata">
+        <div class="meta-people">
+            <div class="meta-person">
+                <span class="meta-label">Created by</span>
+                <span class="meta-value">Linear2</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-person">
+                <span class="meta-label">Verified by</span>
+                <span class="meta-value">Travelchimp</span>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-person">
+                <span class="meta-label">Difficulty</span>
+                <span class="meta-value">
+                    <span class="badge badge-unrated">Unrated</span>
+                </span>
+            </div>
+        </div>
+    
+        <div class="meta-details">
+            <span class="meta-detail">
+                <span class="meta-label">ID</span>
+                <span class="meta-value">94005077</span>
+            </span>
+            <span class="meta-detail">
+                <span class="meta-label">Length</span>
+                <span class="meta-value">Long</span>
+            </span>
+            <span class="meta-detail">
+                <span class="meta-label">Song</span>
+                <span class="meta-value">EagleGuard - Africa Calls</span>
+            </span>
+        </div>
+    </section>
+
+    <hr>
+
+    <section class="content">
+        <h1 id="biography">Biography</h1>
+<p>Africa Circles is a level created by Linear2.</p>
+
+    </section>
+
+    
+    <hr>
+    <section class="showcase">
+        <h2>Showcase</h2>
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/PCNeQvfr2k4"
+                title="YouTube showcase for Africa Circles"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+    
+
+</div>
+
+
+    </main>
+
+    <footer>
+        <p>© 2026 demons.one</p>
+    </footer>
+
+    <script>
+        
+        (function () {
+            const heroBg = document.querySelector(".hero-bg");
+            if (!heroBg) return;
+            let ticking = false;
+            function updateParallax() {
+                const heroEl = heroBg.closest(".hero");
+                const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+                if (window.scrollY <= heroBottom) {
+                    const ratio = window.scrollY / heroBottom;
+                    heroBg.style.transform = `translateY(${ratio * 40}%)`;
+                }
+                ticking = false;
+            }
+            window.addEventListener("scroll", function () {
+                if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+            }, { passive: true });
+            updateParallax();
+        })();
+
+        
+        (function () {
+            const toggle = document.getElementById("theme-toggle");
+            const icon   = document.getElementById("theme-icon");
+            const html   = document.documentElement;
+
+            const ICONS = {
+                light: "/images/misc/dark-mode-light.svg",  
+                dark:  "/images/misc/dark-mode-dark.svg",   
+            };
+
+            function applyTheme(theme) {
+                if (theme === "dark") {
+                    html.setAttribute("data-theme", "dark");
+                    icon.src = ICONS.dark;
+                } else {
+                    html.removeAttribute("data-theme");
+                    icon.src = ICONS.light;
+                }
+            }
+
+            
+            const current = html.getAttribute("data-theme") === "dark" ? "dark" : "light";
+            applyTheme(current);
+
+            toggle.addEventListener("click", function () {
+                const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+                applyTheme(next);
+                localStorage.setItem("theme", next);
+            });
+        })();
+    </script>
+</body>
+</html>

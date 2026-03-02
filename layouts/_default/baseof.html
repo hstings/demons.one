@@ -6,23 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ .Site.Params.description }}">
     <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- Runs before paint to prevent flash of wrong theme -->
+    <script>
+        (function () {
+            const stored = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (stored === "dark" || (!stored && prefersDark)) {
+                document.documentElement.setAttribute("data-theme", "dark");
+            }
+        })();
+    </script>
 </head>
+
 <body>
-    <header>
-        <h1><a href="/">{{ .Site.Title }}</a></h1>
-        <nav>
-            <a href="/demons/">Demons</a>
-        </nav>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="/images/misc/icon.jpg" alt="" class="logo-icon">
+                demons.one
+            </a>
+
+            <div class="search-wrapper">
+                <button class="search-trigger" id="search-trigger" aria-label="Search">
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+                        <path d="M10 6.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-.691 3.516a4.5 4.5 0 1 1 .707-.707l2.838 2.837a.5.5 0 0 1-.708.708L9.31 10.016Z" fill="currentColor"/>
+                    </svg>
+                    Search demons...
+                </button>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/demons/">Demons</a>
+            </nav>
+
+            <!-- Dark mode toggle — swap icon paths to match your files -->
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <img src="/images/misc/dark-mode-light.svg" alt="" id="theme-icon">
+            </button>
+        </div>
     </header>
 
-<main>
-    <div class="container">
+    <main>
         {{ block "main" . }}{{ end }}
-    </div>
-</main>
+    </main>
 
     <footer>
         <p>© {{ now.Year }} demons.one</p>
     </footer>
+
+    <script>
+        // --- Parallax ---
+        (function () {
+            const heroBg = document.querySelector(".hero-bg");
+            if (!heroBg) return;
+            let ticking = false;
+            function updateParallax() {
+                const heroEl = heroBg.closest(".hero");
+                const heroBottom = heroEl.offsetTop + heroEl.offsetHeight;
+                if (window.scrollY <= heroBottom) {
+                    const ratio = window.scrollY / heroBottom;
+                    heroBg.style.transform = `translateY(${ratio * 40}%)`;
+                }
+                ticking = false;
+            }
+            window.addEventListener("scroll", function () {
+                if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+            }, { passive: true });
+            updateParallax();
+        })();
+
+        // --- Dark mode toggle ---
+        (function () {
+            const toggle = document.getElementById("theme-toggle");
+            const icon   = document.getElementById("theme-icon");
+            const html   = document.documentElement;
+
+            const ICONS = {
+                light: "/images/misc/dark-mode-light.svg",  // shown when in light mode (click to go dark)
+                dark:  "/images/misc/dark-mode-dark.svg",   // shown when in dark mode (click to go light)
+            };
+
+            function applyTheme(theme) {
+                if (theme === "dark") {
+                    html.setAttribute("data-theme", "dark");
+                    icon.src = ICONS.dark;
+                } else {
+                    html.removeAttribute("data-theme");
+                    icon.src = ICONS.light;
+                }
+            }
+
+            // Sync icon with whatever theme was set before paint
+            const current = html.getAttribute("data-theme") === "dark" ? "dark" : "light";
+            applyTheme(current);
+
+            toggle.addEventListener("click", function () {
+                const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+                applyTheme(next);
+                localStorage.setItem("theme", next);
+            });
+        })();
+    </script>
 </body>
 </html>

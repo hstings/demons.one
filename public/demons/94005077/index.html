@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <title>Africa Circles | demons.one</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A database of Geometry Dash demons.">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/" class="logo">demons.one</a>
+    
+            <div class="search-wrapper">
+                <input type="text" placeholder="Search demons..." class="search-input">
+            </div>
+    
+            <nav class="nav-links">
+                <a href="/demons/">Demons</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        
+
+
+<div class="hero">
+    <img src="/images/demons/94005077.jpg" alt="Africa Circles">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="demon-title">Africa Circles</h1>
+            
+            <p class="hero-creator">by Linear2</p>
+            
+        </div>
+    </div>
+</div>
+
+
+<div class="page-content">
+
+    
+
+    <section class="metadata">
+        <p><strong>Verifier:</strong> Travelchimp</p>
+        <p>
+            <strong>Difficulty:</strong>
+            <span class="badge badge-unrated">
+                Unrated
+            </span>
+        </p>
+        <p><strong>Level ID:</strong> 94005077</p>
+        <p><strong>Length:</strong> Long</p>
+        <p><strong>Song:</strong> EagleGuard - Africa Calls</p>
+    </section>
+
+    <hr>
+
+    <section class="content">
+        <h1 id="biography">Biography</h1>
+<p>Africa Circles is a level created by Linear2.</p>
+
+    </section>
+
+    
+    <hr>
+    <section class="showcase">
+        <h2>Showcase</h2>
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/PCNeQvfr2k4"
+                title="YouTube showcase for Africa Circles"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+    
+
+</div>
+
+
+    </main>
+
+    <footer>
+        <p>© 2026 demons.one</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const hero = document.querySelector(".hero");
+            const heroImage = document.querySelector(".hero img");
+        
+            if (!hero || !heroImage) return;
+        
+            function updateParallax() {
+                const scrollY = window.scrollY;
+                const heroHeight = hero.offsetHeight;
+        
+                if (scrollY < heroHeight) {
+                    heroImage.style.transform = `translateY(${scrollY * 0.25}px)`;
+                }
+        
+                requestAnimationFrame(updateParallax);
+            }
+        
+            updateParallax();
+        });
+        </script>
+</body>
+</html>
