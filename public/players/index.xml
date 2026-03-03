@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Players on demons.one</title>
+    <link>http://localhost:1313/players/</link>
+    <description>Recent content in Players on demons.one</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/players/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>wPopoff</title>
+      <link>http://localhost:1313/players/wpopoff/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/players/wpopoff/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zoink</title>
+      <link>http://localhost:1313/players/zoink/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/players/zoink/</guid>
+      <description>&lt;p&gt;One of the most accomplished players in Geometry Dash history, known for a string of top-tier extreme demon completions.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

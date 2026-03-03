@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h2>Index of {{ .Title }}</h2>
+<h2>{{ .Title }}</h2>
 
 <ul class="demon-list">
     {{ range .Pages.ByParam "difficulty" }}
@@ -7,6 +7,7 @@
             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             <span class="meta">
                 by {{ .Params.creator }}
+                <span class="badge badge-{{ urlize .Params.difficulty }}">{{ .Params.difficulty }}</span>
             </span>
         </li>
     {{ end }}

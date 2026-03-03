@@ -1,0 +1,171 @@
+/* =========================
+   Player Header
+========================= */
+
+.player-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.75rem 0 1.5rem;
+    width: 100%;
+}
+
+.player-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.player-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+
+.player-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.player-rank {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Cube avatar */
+.player-avatar {
+    max-width: 96px;
+    max-height: 96px;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+    image-rendering: optimizeQuality;
+}
+
+.player-avatar-placeholder {
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+}
+
+.player-avatar-sm {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    image-rendering: pixelated;
+}
+
+/* =========================
+   Player Socials (in header)
+========================= */
+
+.player-socials {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    transition: color 0.2s ease, border-color 0.2s ease;
+    line-height: 1;
+}
+
+.social-link svg {
+    flex-shrink: 0;
+    opacity: 0.75;
+}
+
+.social-link:hover {
+    color: var(--text);
+    border-color: var(--text);
+}
+
+.social-link:hover svg {
+    opacity: 1;
+}
+
+/* =========================
+   Player List
+========================= */
+
+.player-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.player-list-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.player-completion-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* =========================
+   Player hardest link
+========================= */
+
+.player-hardest-link {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 0.9rem;
+}
+
+.player-hardest-link:hover {
+    color: var(--text-muted);
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 600px) {
+    .player-header {
+        padding: 1.25rem 0 1rem;
+        gap: 1rem;
+    }
+
+    .player-avatar {
+        max-width: 72px;
+        max-height: 72px;
+    }
+
+    .player-avatar-placeholder {
+        width: 64px;
+        height: 64px;
+    }
+
+    .player-name {
+        font-size: 1.4rem;
+    }
+}

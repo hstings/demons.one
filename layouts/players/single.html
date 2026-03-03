@@ -1,0 +1,131 @@
+{{ define "main" }}
+
+<div class="page-content">
+
+    <!-- Player Header -->
+    <div class="player-header">
+        <div class="player-header-info">
+            <h1 class="player-name">{{ .Title }}</h1>
+            <p class="player-meta">
+                {{ if .Params.country }}<span class="player-country">{{ .Params.country }}</span>{{ end }}
+                {{ if .Params.rank }}<span class="player-rank">#{{ .Params.rank }} globally</span>{{ end }}
+            </p>
+            {{ if .Params.socials }}
+            <div class="player-socials">
+                {{ if .Params.socials.youtube }}
+                <a href="https://youtube.com/channel/{{ .Params.socials.youtube }}" class="social-link" target="_blank" rel="noopener" aria-label="YouTube">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    YouTube
+                </a>
+                {{ end }}
+                {{ if .Params.socials.twitter }}
+                <a href="https://twitter.com/{{ .Params.socials.twitter }}" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    Twitter
+                </a>
+                {{ end }}
+                {{ if .Params.socials.twitch }}
+                <a href="https://twitch.tv/{{ .Params.socials.twitch }}" class="social-link" target="_blank" rel="noopener" aria-label="Twitch">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/>
+                    </svg>
+                    Twitch
+                </a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        {{ if .Params.avatar }}
+        <img src="{{ .Params.avatar }}" alt="{{ .Title }}" class="player-avatar">
+        {{ else }}
+        <div class="player-avatar player-avatar-placeholder"></div>
+        {{ end }}
+    </div>
+
+    <hr>
+
+    <!-- Stats -->
+    <section class="metadata">
+        <div class="meta-pillars">
+            <div class="meta-pillar">
+                <span class="meta-label">Hardest</span>
+                <span class="meta-value">
+                    {{ if .Params.records.hardest }}
+                        {{ $hardestTitle := .Params.records.hardest }}
+                        {{ $hardestPage := index (where .Site.RegularPages "Title" $hardestTitle) 0 }}
+                        {{ if $hardestPage }}
+                            <a href="{{ $hardestPage.RelPermalink }}" class="player-hardest-link">{{ $hardestTitle }}</a>
+                        {{ else }}
+                            {{ $hardestTitle }}
+                        {{ end }}
+                    {{ else }}
+                    —
+                    {{ end }}
+                </span>
+            </div>
+            <div class="meta-pillar">
+                <span class="meta-label">Demons Beaten</span>
+                <span class="meta-value">{{ len .Params.completions }}</span>
+            </div>
+            <div class="meta-pillar">
+                <span class="meta-label">Extremes</span>
+                <span class="meta-value">
+                    {{ $extremeCount := 0 }}
+                    {{ range .Params.completions }}
+                        {{ $demonPage := index (where $.Site.RegularPages "Title" .) 0 }}
+                        {{ if $demonPage }}
+                            {{ if eq $demonPage.Params.difficulty "Extreme Demon" }}
+                                {{ $extremeCount = add $extremeCount 1 }}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                    {{ $extremeCount }}
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <!-- About -->
+    {{ if .Content }}
+    <section class="content">
+        {{ .Content }}
+    </section>
+    <hr>
+    {{ end }}
+
+    <!-- Completions -->
+    {{ if .Params.completions }}
+    <section class="home-section">
+        <h2 class="section-heading">Completions ({{ len .Params.completions }})</h2>
+        <ul class="demon-list">
+            {{ range .Params.completions }}
+                {{ $demonPage := index (where $.Site.RegularPages "Title" .) 0 }}
+                {{ if $demonPage }}
+                <li>
+                    <a href="{{ $demonPage.RelPermalink }}">{{ $demonPage.Title }}</a>
+                    <span class="meta">
+                        by {{ $demonPage.Params.creator }}
+                        <span class="badge badge-{{ urlize $demonPage.Params.difficulty }}">{{ $demonPage.Params.difficulty }}</span>
+                        {{ if $demonPage.Params.gddl }}<span class="badge badge-gddl-{{ $demonPage.Params.gddl }}">T{{ $demonPage.Params.gddl }}</span>{{ end }}
+                    </span>
+                </li>
+                {{ else }}
+                <li>
+                    <span>{{ . }}</span>
+                    <span class="meta">Level not yet indexed</span>
+                </li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
+
+</div>
+
+{{ end }}

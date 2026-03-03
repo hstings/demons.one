@@ -1,0 +1,108 @@
+{{ define "main" }}
+
+{{ if .Params.image }}
+<div class="hero">
+    <div class="hero-bg" style="background-image: url('{{ .Params.image }}');"></div>
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="demon-title">{{ .Title }}</h1>
+            {{ if .Params.creator }}
+            <p class="hero-creator">
+                by {{ .Params.creator }}
+                {{ if .Params.rank }}<span class="hero-rank-inline">— #{{ .Params.rank }}</span>{{ end }}
+            </p>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ else }}
+<h1>{{ .Title }}</h1>
+{{ if .Params.creator }}
+<p class="hero-creator">
+    by {{ .Params.creator }}
+    {{ if .Params.rank }}<span class="hero-rank-inline">— #{{ .Params.rank }}</span>{{ end }}
+</p>
+{{ end }}
+{{ end }}
+
+<div class="page-content">
+
+    <section class="metadata">
+
+        <!-- 3 pillar ranking row -->
+        <div class="meta-pillars">
+            <div class="meta-pillar">
+                <span class="meta-label">Difficulty</span>
+                <span class="meta-value">
+                    <span class="badge badge-{{ urlize .Params.difficulty }}">{{ .Params.difficulty }}</span>
+                </span>
+            </div>
+            <div class="meta-pillar">
+                <span class="meta-label">GDDL Tier</span>
+                <span class="meta-value">
+                    {{ if .Params.gddl }}
+                    <span class="badge badge-gddl-{{ .Params.gddl }}">Tier {{ .Params.gddl }}</span>
+                    {{ else }}
+                    <span class="badge badge-unrated">Unrated</span>
+                    {{ end }}
+                </span>
+            </div>
+            <div class="meta-pillar">
+                <span class="meta-label">{{ if .Params.lw }}LW{{ else }}NLW{{ end }}</span>
+                <span class="meta-value">
+                    {{ if .Params.nlw }}
+                    <span class="badge badge-nlw-{{ urlize .Params.nlw }}">{{ .Params.nlw }}</span>
+                    {{ else }}
+                    <span class="badge badge-unrated">Unrated</span>
+                    {{ end }}
+                </span>
+            </div>
+        </div>
+    
+        <!-- 2x2 quadrant -->
+        <div class="meta-grid">
+            <div class="meta-item">
+                <span class="meta-label">Verified by</span>
+                <span class="meta-value">{{ .Params.verifier }}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Level ID</span>
+                <span class="meta-value">{{ .Params.levelID }}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Length</span>
+                <span class="meta-value">{{ .Params.length }}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Song</span>
+                <span class="meta-value">{{ .Params.song }}</span>
+            </div>
+        </div>
+    
+    </section>
+
+    <hr>
+
+    <section class="content">
+        {{ .Content }}
+    </section>
+
+    {{ if .Params.youtube }}
+    <hr>
+    <section class="showcase content">
+        <h2>Verification/Showcase</h2>
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/{{ .Params.youtube }}"
+                title="YouTube showcase for {{ .Title }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+    {{ end }}
+
+</div>
+
+{{ end }}

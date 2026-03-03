@@ -1,0 +1,31 @@
+{{ define "main" }}
+
+<h2 class="home-title">Players</h2>
+<p class="home-subtitle">Notable Geometry Dash players tracked on demons.one.</p>
+
+<hr>
+
+<ul class="demon-list">
+    {{ range .Pages.ByParam "rank" }}
+    <li class="player-list-item">
+        <div class="player-list-left">
+            {{ if .Params.avatar }}
+            <img src="{{ .Params.avatar }}" alt="{{ .Title }}" class="player-avatar-sm">
+            {{ else }}
+            <div class="player-avatar-sm player-avatar-placeholder"></div>
+            {{ end }}
+            <div>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <span class="meta">
+                    {{ if .Params.country }}{{ .Params.country }}{{ end }}
+                    {{ if .Params.rank }} · #{{ .Params.rank }}{{ end }}
+                    {{ if .Params.records.hardest }} · {{ .Params.records.hardest }}{{ end }}
+                </span>
+            </div>
+        </div>
+        <span class="player-completion-count">{{ if .Params.completions }}{{ len .Params.completions }}{{ else }}0{{ end }} demons</span>
+    </li>
+    {{ end }}
+</ul>
+
+{{ end }}

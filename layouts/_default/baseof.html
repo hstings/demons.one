@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ .Site.Params.description }}">
     <meta name="view-transition" content="same-origin">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/hero.css">
+    <link rel="stylesheet" href="/css/metadata.css">
+    <link rel="stylesheet" href="/css/content.css">
+    <link rel="stylesheet" href="/css/player.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/transitions.css">
+    <link rel="stylesheet" href="/css/mobile.css">
 
     <!-- Runs before paint to prevent flash of wrong theme -->
     <script>
@@ -24,20 +32,27 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="/" class="logo">
-                <img src="/images/misc/icon-light.png" alt="" class="logo-icon">
+                <img src="/images/logo-light.png" alt="" class="logo-icon" id="logo-icon">
                 demons.one
             </a>
     
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-links">
                 <a href="/levels/">Levels</a>
                 <a href="/players/">Players</a>
                 <a href="/creators/">Creators</a>
                 <a href="/about/">About</a>
             </nav>
     
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                <img src="/images/misc/dark-mode-light.svg" alt="" id="theme-icon">
-            </button>
+            <div class="nav-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <img src="/images/icon-light-mode.png" alt="" id="theme-icon">
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -48,6 +63,7 @@
     <footer>
         <p>© {{ now.Year }} demons.one</p>
     </footer>
+
 
     <script>
         // --- Parallax ---
@@ -80,14 +96,22 @@
                 light: "/images/misc/dark-mode-light.svg",  // shown when in light mode (click to go dark)
                 dark:  "/images/misc/dark-mode-dark.svg",   // shown when in dark mode (click to go light)
             };
+            const LOGO_ICONS = {
+                light: "/images/misc/logo-light.png",
+                dark:  "/images/misc/logo-dark.png",
+            };
 
             function applyTheme(theme) {
+                const logoIcon = document.getElementById("logo-icon");
+
                 if (theme === "dark") {
                     html.setAttribute("data-theme", "dark");
                     icon.src = ICONS.dark;
+                    if (logoIcon) logoIcon.src = LOGO_ICONS.dark;
                 } else {
                     html.removeAttribute("data-theme");
                     icon.src = ICONS.light;
+                    if (logoIcon) logoIcon.src = LOGO_ICONS.light;
                 }
             }
 
@@ -111,7 +135,7 @@
             const dotsContainer = document.querySelector(".carousel-dots");
             const prevBtn       = document.querySelector(".carousel-btn-prev");
             const nextBtn       = document.querySelector(".carousel-btn-next");
-            const perPage       = 3;
+            const perPage       = window.innerWidth <= 600 ? 1 : 3;
             let timer;
 
             const cards  = Array.from(track.children);
@@ -163,6 +187,27 @@
             track.addEventListener("mouseleave", startTimer);
 
             startTimer();
+        })();
+    </script>
+    <script>
+        // --- Hamburger ---
+        (function () {
+            const hamburger = document.getElementById("hamburger");
+            const navLinks  = document.getElementById("nav-links");
+            if (!hamburger) return;
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("open");
+                navLinks.classList.toggle("open");
+            });
+
+            // Close when a link is tapped
+            navLinks.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("open");
+                    navLinks.classList.remove("open");
+                });
+            });
         })();
     </script>
 </body>

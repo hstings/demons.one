@@ -1,0 +1,241 @@
+/* =========================
+   Home Page
+========================= */
+
+.home-hero {
+    padding: 3.5rem 0 3rem;
+}
+
+.home-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.75rem;
+    color: var(--text);
+}
+
+.home-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.home-cta {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.1rem;
+    transition: border-color 0.2s ease;
+}
+
+.home-cta:hover {
+    border-color: var(--text);
+}
+
+/* =========================
+   Stats
+========================= */
+
+.home-stats {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 1.25rem 0;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.home-stats::-webkit-scrollbar {
+    display: none;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.5rem 0.9rem;
+    border-left: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.stat-item:first-child {
+    border-left: none;
+    padding-left: 0;
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* =========================
+   Section Headings
+========================= */
+
+.home-section {
+    padding: 1.75rem 0;
+}
+
+.section-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+/* =========================
+   Featured Carousel
+========================= */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 0.75rem;
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.featured-card {
+    position: relative;
+    min-width: calc((100% - 1.5rem) / 3);
+    height: 220px;
+    text-decoration: none;
+    display: block;
+    background: var(--border);
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.featured-card-bg {
+    position: absolute;
+    inset: -10% 0;
+    background-image: var(--card-image);
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+.featured-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0.1));
+    display: flex;
+    align-items: flex-end;
+}
+
+.featured-card-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.featured-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1.2;
+}
+
+.featured-card-creator {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+}
+
+/* Arrow buttons */
+
+.carousel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover { background: rgba(255,255,255,0.28); }
+.carousel-btn-prev  { left: 0.75rem; }
+.carousel-btn-next  { right: 0.75rem; }
+
+/* Dot indicators */
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+}
+
+.carousel-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: var(--border);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.25s ease;
+}
+
+.carousel-dot.active {
+    background: var(--text);
+    width: 16px;
+}
+
+/* =========================
+   Recently Added / About
+========================= */
+
+.view-all {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.view-all:hover { color: var(--text); }
+
+.home-about p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 800px;
+}
+
+.home-about p + p { margin-top: 0.75rem; }

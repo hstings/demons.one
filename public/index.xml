@@ -12,7 +12,21 @@
       <link>http://localhost:1313/demons/orbit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/demons/orbit/</guid>
+      <description>&lt;h2 id=&#34;biography&#34;&gt;Biography&lt;/h2&gt;&#xA;&lt;p&gt;ORBIT is an extreme demon mega-collab hosted by MindCap. The level was verified by Zoink on February 10, 2026.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Thinking Space II</title>
+      <link>http://localhost:1313/demons/thinking-space-ii/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/demons/thinking-space-ii/</guid>
       <description></description>
+    </item>
+    <item>
+      <title>Tidal Wave</title>
+      <link>http://localhost:1313/demons/tidal-wave/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/demons/tidal-wave/</guid>
+      <description>&lt;h2 id=&#34;biography&#34;&gt;Biography&lt;/h2&gt;&#xA;&lt;p&gt;Tidal Wave is an extreme demon created by OniLink. The level was verified by Zoink on September 9, 2023 after 49,534 attempts. The level is a beach/ocean themed wave level, which was praised at the time for it&amp;rsquo;s unique decoration compared to most other top extremes at the time.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Slaughterhouse</title>
@@ -22,18 +36,18 @@
       <description>&lt;h2 id=&#34;biography&#34;&gt;Biography&lt;/h2&gt;&#xA;&lt;p&gt;Slaughterhouse is an extreme demon created by IcEDCave. It is a sequel/remake of IcEDCaves impossible level &amp;ldquo;Slaughterhouse,&amp;rdquo; aptly with the same name. It was initially &lt;strong&gt;hack-verified&lt;/strong&gt; by spaceuk, with Doggie being the first victor. When spaceuk confessed to hacking, it was revealed that Doggie was the true verifier of the level.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Tidal Wave</title>
-      <link>http://localhost:1313/demons/tidal-wave/</link>
+      <title>wPopoff</title>
+      <link>http://localhost:1313/players/wpopoff/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/demons/tidal-wave/</guid>
+      <guid>http://localhost:1313/players/wpopoff/</guid>
       <description></description>
     </item>
     <item>
-      <title>Africa Circles</title>
-      <link>http://localhost:1313/demons/africa-circles/</link>
+      <title>Zoink</title>
+      <link>http://localhost:1313/players/zoink/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/demons/africa-circles/</guid>
-      <description>&lt;h1 id=&#34;biography&#34;&gt;Biography&lt;/h1&gt;&#xA;&lt;p&gt;Africa Circles is a level created by Linear2.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/players/zoink/</guid>
+      <description>&lt;p&gt;One of the most accomplished players in Geometry Dash history, known for a string of top-tier extreme demon completions.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

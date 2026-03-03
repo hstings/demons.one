@@ -10,6 +10,9 @@ image: "/images/demons/Tidal Wave.png"
 youtube: "9fsZ014qB3s"
 featured: true
 weight: 2
+gddl: 39
+lw: 4
+nlw: "Nightmare"
 ---
 
 ## Biography

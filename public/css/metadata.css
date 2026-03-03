@@ -1,0 +1,159 @@
+/* =========================
+   Metadata
+========================= */
+
+.metadata {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 3 pillar row */
+
+.meta-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.meta-pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-right: 1px solid var(--border);
+    text-align: center;
+}
+
+.meta-pillar:last-child {
+    border-right: none;
+}
+
+/* 2x2 quadrant */
+
+.meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.75rem 1rem;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.meta-item:nth-child(2n)        { border-right: none; }
+.meta-item:nth-last-child(-n+2) { border-bottom: none; }
+
+.meta-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-muted);
+}
+
+.meta-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* =========================
+   Badges
+========================= */
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Difficulty */
+.badge-easy-demon    { background: #4CAF50; color: white; }
+.badge-medium-demon  { background: #2196F3; color: white; }
+.badge-hard-demon    { background: #9C27B0; color: white; }
+.badge-insane-demon  { background: #FF9800; color: white; }
+.badge-extreme-demon { background: #E53935; color: white; }
+.badge-unrated       { background: #757575; color: white; }
+.badge-unreleased    { background: #455A64; color: white; }
+
+/* GDDL Tiers 1-39 */
+.badge-gddl-1  { background: #607D8B; color: white; }
+.badge-gddl-2  { background: #607D8B; color: white; }
+.badge-gddl-3  { background: #607D8B; color: white; }
+.badge-gddl-4  { background: #607D8B; color: white; }
+.badge-gddl-5  { background: #607D8B; color: white; }
+.badge-gddl-6  { background: #607D8B; color: white; }
+.badge-gddl-7  { background: #607D8B; color: white; }
+.badge-gddl-8  { background: #607D8B; color: white; }
+.badge-gddl-9  { background: #607D8B; color: white; }
+.badge-gddl-10 { background: #607D8B; color: white; }
+.badge-gddl-11 { background: #607D8B; color: white; }
+.badge-gddl-12 { background: #607D8B; color: white; }
+.badge-gddl-13 { background: #607D8B; color: white; }
+.badge-gddl-14 { background: #607D8B; color: white; }
+.badge-gddl-15 { background: #607D8B; color: white; }
+.badge-gddl-16 { background: #607D8B; color: white; }
+.badge-gddl-17 { background: #607D8B; color: white; }
+.badge-gddl-18 { background: #607D8B; color: white; }
+.badge-gddl-19 { background: #607D8B; color: white; }
+.badge-gddl-20 { background: #607D8B; color: white; }
+.badge-gddl-21 { background: #607D8B; color: white; }
+.badge-gddl-22 { background: #607D8B; color: white; }
+.badge-gddl-23 { background: #607D8B; color: white; }
+.badge-gddl-24 { background: #607D8B; color: white; }
+.badge-gddl-25 { background: #607D8B; color: white; }
+.badge-gddl-26 { background: #607D8B; color: white; }
+.badge-gddl-27 { background: #607D8B; color: white; }
+.badge-gddl-28 { background: #607D8B; color: white; }
+.badge-gddl-29 { background: #607D8B; color: white; }
+.badge-gddl-30 { background: #607D8B; color: white; }
+.badge-gddl-31 { background: #607D8B; color: white; }
+.badge-gddl-32 { background: #607D8B; color: white; }
+.badge-gddl-33 { background: #607D8B; color: white; }
+.badge-gddl-34 { background: #607D8B; color: white; }
+.badge-gddl-35 { background: #607D8B; color: white; }
+.badge-gddl-36 { background: #607D8B; color: white; }
+.badge-gddl-37 { background: #607D8B; color: white; }
+.badge-gddl-38 { background: #607D8B; color: white; }
+.badge-gddl-39 { background: #607D8B; color: white; }
+
+/* NLW/LW Tiers */
+.badge-nlw-beginner     { background: #4CAF50; color: white; }
+.badge-nlw-easy         { background: #8BC34A; color: white; }
+.badge-nlw-medium       { background: #CDDC39; color: #333; }
+.badge-nlw-hard         { background: #FFC107; color: #333; }
+.badge-nlw-very-hard    { background: #FF9800; color: white; }
+.badge-nlw-insane       { background: #FF5722; color: white; }
+.badge-nlw-extreme      { background: #F44336; color: white; }
+.badge-nlw-remorseless  { background: #E91E63; color: white; }
+.badge-nlw-relentless   { background: #9C27B0; color: white; }
+.badge-nlw-terrifying   { background: #673AB7; color: white; }
+.badge-nlw-catastrophic { background: #3F51B5; color: white; }
+.badge-nlw-inexorable   { background: #2196F3; color: white; }
+.badge-nlw-excruciating { background: #03A9F4; color: white; }
+.badge-nlw-merciless    { background: #00BCD4; color: white; }
+.badge-nlw-monstrous    { background: #009688; color: white; }
+.badge-nlw-apocalyptic  { background: #607D8B; color: white; }
+.badge-nlw-demonic      { background: #455A64; color: white; }
+.badge-nlw-menacing     { background: #37474F; color: white; }
+.badge-nlw-unreal       { background: #212121; color: white; }
+.badge-nlw-nightmare    { background: #000000; color: white; }
+
+/* LW placement */
+.badge-lw { background: #3949AB; color: white; }
