@@ -2,11 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/demons/grief/</loc>
+  </url><url>
     <loc>http://localhost:1313/demons/orbit/</loc>
   </url><url>
-    <loc>http://localhost:1313/demons/tidal-wave/</loc>
+    <loc>http://localhost:1313/demons/nullscapes/</loc>
   </url><url>
-    <loc>http://localhost:1313/demons/slaughterhouse/</loc>
+    <loc>http://localhost:1313/demons/amethyst/</loc>
+  </url><url>
+    <loc>http://localhost:1313/demons/quanteuse-processing/</loc>
+  </url><url>
+    <loc>http://localhost:1313/demons/thinking-space-ii/</loc>
+  </url><url>
+    <loc>http://localhost:1313/demons/tidal-wave/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
@@ -15,6 +23,8 @@
     <loc>http://localhost:1313/</loc>
   </url><url>
     <loc>http://localhost:1313/players/</loc>
+  </url><url>
+    <loc>http://localhost:1313/demons/slaughterhouse/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
   </url><url>
